@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class HelloController {
 
-	@RequestMapping("/hello")
-	@ResponseBody
-	public ResponseEntity<HelloDto> hello() {
-		return ResponseEntity.ok().body(new HelloDto("Olá mundo"));
-	}
-	
+    @RequestMapping("/hello")
+    @ResponseBody
+    public ResponseEntity<HelloDto> hello() {
+        return ResponseEntity.ok().body(new HelloDto("Olá mundo"));
+    }
+
 }

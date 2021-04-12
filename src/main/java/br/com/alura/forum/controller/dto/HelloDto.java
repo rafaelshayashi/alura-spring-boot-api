@@ -4,7 +4,7 @@ public class HelloDto {
 
     private String message;
 
-    public HelloDto(String message){
+    public HelloDto(String message) {
         this.message = message;
     }
 

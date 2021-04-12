@@ -1,45 +1,42 @@
 package br.com.alura.forum.controller.dto;
 
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.stream.Collectors;
-
+import br.com.alura.forum.model.Topico;
 import org.springframework.data.domain.Page;
 
-import br.com.alura.forum.model.Topico;
+import java.time.LocalDateTime;
 
 public class TopicoDto {
 
-	private Long id;
-	private String titulo;
-	private String menssagem;
-	private LocalDateTime dataCriacao;
+    private Long id;
+    private String titulo;
+    private String menssagem;
+    private LocalDateTime dataCriacao;
 
-	public TopicoDto(Topico topico) {
-		this.id = topico.getId();
-		this.titulo = topico.getTitulo();
-		this.menssagem = topico.getMensagem();
-		this.dataCriacao = topico.getDataCriacao();
-	}
+    public TopicoDto(Topico topico) {
+        this.id = topico.getId();
+        this.titulo = topico.getTitulo();
+        this.menssagem = topico.getMensagem();
+        this.dataCriacao = topico.getDataCriacao();
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public static Page<TopicoDto> converter(Page<Topico> topicos) {
+        return topicos.map(TopicoDto::new);
+    }
 
-	public String getTitulo() {
-		return titulo;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public String getMenssagem() {
-		return menssagem;
-	}
+    public String getTitulo() {
+        return titulo;
+    }
 
-	public LocalDateTime getDataCriacao() {
-		return dataCriacao;
-	}
+    public String getMenssagem() {
+        return menssagem;
+    }
 
-	public static Page<TopicoDto> converter(Page<Topico> topicos) {
-		return topicos.map(TopicoDto::new);
-	}
+    public LocalDateTime getDataCriacao() {
+        return dataCriacao;
+    }
 
 }
